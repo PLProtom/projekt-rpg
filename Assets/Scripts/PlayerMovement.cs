@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha5)) UseSkill(5);
     }
 
-    void UseSkill(int skillNumber)
+    public void UseSkill(int skillNumber)
     {
         animator.SetTrigger("skill" + skillNumber);
         skillParticles[skillNumber - 1].SetActive(true);
