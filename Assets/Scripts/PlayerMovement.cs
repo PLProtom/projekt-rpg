@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     [SerializeField] GameObject[] skillParticles;
     private IEnumerator coroutine;
+    [SerializeField] AudioClip[] skillsAudioClips;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -35,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetTrigger("skill" + skillNumber);
         skillParticles[skillNumber - 1].SetActive(true);
+        audioSource.clip = skillsAudioClips[skillNumber - 1];
+        audioSource.Play();
 
         switch(skillNumber)
         {
